@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-25 13:46+0700\n"
+"POT-Creation-Date: 2019-02-25 14:30+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
+#: app/main/auth/services/auth_helper.py:17
+msgid "Successfully logged in."
+msgstr ""
+
+#: app/main/auth/services/auth_helper.py:24
+msgid "Email or password does not match."
+msgstr ""
+
+#: app/main/auth/services/auth_helper.py:32
+msgid "Try again."
+msgstr ""
+
+#: app/main/auth/services/auth_helper.py:56
+#: app/main/auth/services/auth_helper.py:86
+msgid "Please provide a valid auth token."
+msgstr ""
+
 #: app/main/user/apis/user.py:23
 msgid "User successfully created"
 msgstr ""
 
-#: app/main/user/services/user_service.py:42
+#: app/main/user/apis/user.py:33
+msgid "User not found."
+msgstr ""
+
+#: app/main/user/services/user_service.py:24
+msgid "User already exists. Please Log in."
+msgstr ""
+
+#: app/main/user/services/user_service.py:43
 msgid "Successfully registered."
+msgstr ""
+
+#: app/main/user/services/user_service.py:50
+msgid "Some error occurred. Please try again."
+msgstr ""
+
+#: app/main/utils/decorator.py:38
+msgid "Admin token required"
 msgstr ""
 

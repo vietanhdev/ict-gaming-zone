@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-25 13:46+0700\n"
+"POT-Creation-Date: 2019-02-25 14:30+0700\n"
 "PO-Revision-Date: 2019-02-25 13:37+0700\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: vi\n"
@@ -18,11 +18,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
+#: app/main/auth/services/auth_helper.py:17
+msgid "Successfully logged in."
+msgstr "Đăng nhập thành công."
+
+#: app/main/auth/services/auth_helper.py:24
+msgid "Email or password does not match."
+msgstr "Email hoặc mật khẩu không đúng."
+
+#: app/main/auth/services/auth_helper.py:32
+msgid "Try again."
+msgstr "Xin thử lại"
+
+#: app/main/auth/services/auth_helper.py:56
+#: app/main/auth/services/auth_helper.py:86
+msgid "Please provide a valid auth token."
+msgstr "Cần cung cấp token."
+
 #: app/main/user/apis/user.py:23
 msgid "User successfully created"
 msgstr "Tạo người dùng thành công"
 
-#: app/main/user/services/user_service.py:42
+#: app/main/user/apis/user.py:33
+msgid "User not found."
+msgstr "Không tìm thấy người dùng."
+
+#: app/main/user/services/user_service.py:24
+msgid "User already exists. Please Log in."
+msgstr "Người dùng đã tồn tại. Vui lòng đăng nhập."
+
+#: app/main/user/services/user_service.py:43
 msgid "Successfully registered."
 msgstr "Đăng ký người dùng thành công."
+
+#: app/main/user/services/user_service.py:50
+msgid "Some error occurred. Please try again."
+msgstr "Đã có lỗi xảy ra. Xin thử lại."
+
+#: app/main/utils/decorator.py:38
+msgid "Admin token required"
+msgstr "Yêu cầu quyền admin để truy cập."
 
