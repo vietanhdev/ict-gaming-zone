@@ -1,9 +1,10 @@
 import uuid
 import datetime
 
+from flask import request
 from app.main import db
 from app.main.user.models.user import User
-
+from flask_babel import gettext, ngettext
 
 def save_new_user(data):
     user = User.query.filter_by(email=data['email']).first()
@@ -20,7 +21,7 @@ def save_new_user(data):
     else:
         response_object = {
             'status': 'fail',
-            'message': 'User already exists. Please Log in.',
+            'message': gettext(u'User already exists. Please Log in.'),
         }
         return response_object, 409
 
@@ -39,14 +40,14 @@ def generate_token(user):
         auth_token = User.encode_auth_token(user.id)
         response_object = {
             'status': 'success',
-            'message': 'Successfully registered.',
+            'message': gettext(u'Successfully registered.'),
             'Authorization': auth_token.decode()
         }
         return response_object, 201
     except Exception as e:
         response_object = {
             'status': 'fail',
-            'message': 'Some error occurred. Please try again.'
+            'message': gettext(u'Some error occurred. Please try again.')
         }
         return response_object, 401
 

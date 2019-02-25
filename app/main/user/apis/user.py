@@ -1,5 +1,6 @@
 from flask import request
 from flask_restplus import Resource
+from flask_babel import gettext, ngettext
 
 from app.main.utils.decorator import admin_token_required
 from app.main.utils.dto import UserDto
@@ -19,7 +20,7 @@ class UserList(Resource):
         return get_all_users()
 
     @api.expect(_user, validate=True)
-    @api.response(201, 'User successfully created.')
+    @api.response(201, gettext(u'User successfully created'))
     @api.doc('create a new user')
     def post(self):
         """Creates a new User """
@@ -29,7 +30,7 @@ class UserList(Resource):
 
 @api.route('/<public_id>')
 @api.param('public_id', 'The User identifier')
-@api.response(404, 'User not found.')
+@api.response(404, gettext(u'User not found.'))
 class User(Resource):
     @api.doc('get a user')
     @api.marshal_with(_user)

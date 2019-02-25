@@ -1,6 +1,6 @@
 from app.main.user.models.user import User
 from app.main.auth.services.blacklist_service import save_token
-
+from flask_babel import gettext, ngettext
 
 class Auth:
 
@@ -14,14 +14,14 @@ class Auth:
                 if auth_token:
                     response_object = {
                         'status': 'success',
-                        'message': 'Successfully logged in.',
+                        'message': gettext(u'Successfully logged in.'),
                         'Authorization': auth_token.decode()
                     }
                     return response_object, 200
             else:
                 response_object = {
                     'status': 'fail',
-                    'message': 'email or password does not match.'
+                    'message': gettext(u'Email or password does not match.')
                 }
                 return response_object, 401
 
@@ -29,7 +29,7 @@ class Auth:
             print(e)
             response_object = {
                 'status': 'fail',
-                'message': 'Try again'
+                'message': gettext(u'Try again.')
             }
             return response_object, 500
 
@@ -53,7 +53,7 @@ class Auth:
         else:
             response_object = {
                 'status': 'fail',
-                'message': 'Provide a valid auth token.'
+                'message': gettext(u'Please provide a valid auth token.')
             }
             return response_object, 403
 
@@ -83,6 +83,6 @@ class Auth:
         else:
             response_object = {
                 'status': 'fail',
-                'message': 'Provide a valid auth token.'
+                'message': gettext(u'Please provide a valid auth token.')
             }
             return response_object, 401

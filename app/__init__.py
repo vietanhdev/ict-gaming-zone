@@ -7,10 +7,10 @@ from .main.auth.apis.auth import api as auth_ns
 blueprint = Blueprint('api', __name__)
 
 api = Api(blueprint,
-          title='FLASK RESTPLUS API BOILER-PLATE WITH JWT',
+          title='iCT Gamming Zone - API Specification',
           version='1.0',
-          description='a boilerplate for flask restplus web service'
+          description='API specification using Swagger'
           )
 
-api.add_namespace(user_ns, path='/user')
-api.add_namespace(auth_ns)
+api.add_namespace(user_ns, path='/users')
+api.add_namespace(auth_ns, path='/auth')
