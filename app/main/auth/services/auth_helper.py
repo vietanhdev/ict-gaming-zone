@@ -15,7 +15,12 @@ class Auth:
                     response_object = {
                         'status': 'success',
                         'message': gettext(u'Successfully logged in.'),
-                        'Authorization': auth_token.decode()
+                        'Authorization': auth_token.decode(),
+                        'user': {
+                            "name": user.name,
+                            "email": user.email,
+                            "public_id": user.public_id
+                        }
                     }
                     return response_object, 200
             else:
@@ -36,7 +41,8 @@ class Auth:
     @staticmethod
     def logout_user(data):
         if data:
-            auth_token = data.split(" ")[1]
+            auth_token = data;
+            # auth_token = data.split(" ")[1]
         else:
             auth_token = ''
         if auth_token:
@@ -69,6 +75,7 @@ class Auth:
                     'status': 'success',
                     'data': {
                         'user_id': user.id,
+                        'public_id': user.public_id,
                         'email': user.email,
                         'admin': user.admin,
                         'registered_on': str(user.registered_on)

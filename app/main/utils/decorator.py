@@ -1,6 +1,6 @@
 from functools import wraps
 
-from flask import request
+from flask import request, g
 
 from app.main.auth.services.auth_helper import Auth
 
@@ -9,12 +9,14 @@ from flask_babel import gettext, ngettext
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
-
         data, status = Auth.get_logged_in_user(request)
         token = data.get('data')
 
         if not token:
             return data, status
+
+        if status == 200 and data['status'] == 'success':
+            g.user = data.get('data')
 
         return f(*args, **kwargs)
 
@@ -24,7 +26,6 @@ def token_required(f):
 def admin_token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
-
         data, status = Auth.get_logged_in_user(request)
         token = data.get('data')
 

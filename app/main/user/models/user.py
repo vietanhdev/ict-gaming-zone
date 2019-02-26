@@ -4,6 +4,7 @@ import datetime
 from app.main.auth.models.blacklist import BlacklistToken
 from app.main.config import key
 import jwt
+from flask_babel import gettext, ngettext
 
 
 class User(db.Model):
@@ -12,6 +13,7 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email = db.Column(db.String(255), unique=True, nullable=False)
+    name = db.Column(db.String(255), unique=False, nullable=True)
     registered_on = db.Column(db.DateTime, nullable=False)
     admin = db.Column(db.Boolean, nullable=False, default=False)
     public_id = db.Column(db.String(100), unique=True)
@@ -60,13 +62,13 @@ class User(db.Model):
             payload = jwt.decode(auth_token, key)
             is_blacklisted_token = BlacklistToken.check_blacklist(auth_token)
             if is_blacklisted_token:
-                return 'Token blacklisted. Please log in again.'
+                return gettext(u'Token blacklisted. Please log in again.')
             else:
                 return payload['sub']
         except jwt.ExpiredSignatureError:
-            return 'Signature expired. Please log in again.'
+            return gettext(u'Signature expired. Please log in again.')
         except jwt.InvalidTokenError:
-            return 'Invalid token. Please log in again.'
+            return gettext(u'Invalid token. Please log in again.')
 
     def __repr__(self):
         return "<User '{}'>".format(self.username)

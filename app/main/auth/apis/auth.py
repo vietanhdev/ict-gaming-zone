@@ -13,7 +13,7 @@ class UserLogin(Resource):
     """
         User Login Resource
     """
-    @api.doc('user login')
+    @api.doc('User login')
     @api.expect(user_auth, validate=True)
     def post(self):
         # get the post data
@@ -26,7 +26,8 @@ class LogoutAPI(Resource):
     """
     Logout Resource
     """
-    @api.doc('logout a user')
+    @api.doc('Logout a user')
+    @api.doc(security='apikey')
     def post(self):
         # get auth token
         auth_header = request.headers.get('Authorization')
