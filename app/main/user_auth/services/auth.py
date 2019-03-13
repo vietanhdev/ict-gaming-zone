@@ -27,8 +27,8 @@ class Auth:
         Process an admin login
         """
         try:
-            username = data.get('username');
-            password = data.get('password');
+            username = data.get('username')
+            password = data.get('password')
 
             if (Auth.get_admin_username() != username or
                 Auth.get_admin_password() != password
