@@ -1,0 +1,18 @@
+version: '2'
+volumes:
+ dbdata:
+
+services:
+ mysql:
+  image: mysql:5.7
+  container_name: mysql
+  volumes:
+    - dbdata:/var/lib/mysql
+  restart: always
+  environment:
+    - MYSQL_ROOT_PASSWORD=secret
+    - MYSQL_DATABASE=gotit_ictgamingzone
+    - MYSQL_USER=gotit_ictgamingzone
+    - MYSQL_PASSWORD=ict123456
+  ports:
+    - "3306:3306"
