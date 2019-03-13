@@ -46,7 +46,12 @@ python manage.py run
     pybabel compile -d  app/main/translations
     ```
 - To specify language for API, set `Accept-Language` header of request to the language of response. Currently we support `en` (default) and `vi`.
-    
+
+
+### API DOC:
+
+- Run the server then enter: [https://localhost:5000/api/swagger](https://localhost:5000/api/swagger)
 
 ### References
-https://medium.freecodecamp.org/structuring-a-flask-restplus-web-service-for-production-builds-c2ec676de563
+
+- Project structure was inspired by: https://medium.freecodecamp.org/structuring-a-flask-restplus-web-service-for-production-builds-c2ec676de563

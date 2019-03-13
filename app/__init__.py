@@ -4,7 +4,7 @@ from flask import Blueprint
 from .main.user_auth.user import api as user_ns
 from .main.user_auth.auth import api as auth_ns
 
-blueprint = Blueprint('api', __name__)
+blueprint = Blueprint('api', __name__, url_prefix='/api/swagger')
 
 api = Api(blueprint,
     title='iCT Gaming Zone - API Specification',
@@ -12,5 +12,5 @@ api = Api(blueprint,
     description='API specification using Swagger'
 )
 
-api.add_namespace(user_ns, path='/users')
-api.add_namespace(auth_ns, path='/auth')
+api.add_namespace(user_ns, path='/api/users')
+api.add_namespace(auth_ns, path='/api/auth')
