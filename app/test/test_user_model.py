@@ -3,7 +3,7 @@ import unittest
 import datetime
 
 from app.main import db
-from app.main.user.models.user import User
+from app.main.user_auth.models.user import User
 from app.test.base import BaseTestCase
 
 

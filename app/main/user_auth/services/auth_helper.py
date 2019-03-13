@@ -1,5 +1,5 @@
-from app.main.user.models.user import User
-from app.main.auth.services.blacklist_service import save_token
+from app.main.user_auth.models.user import User
+from app.main.user_auth.services.blacklist_service import save_token
 from flask_babel import gettext, ngettext
 
 class Auth:

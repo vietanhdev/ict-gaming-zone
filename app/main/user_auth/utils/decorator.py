@@ -2,7 +2,7 @@ from functools import wraps
 
 from flask import request, g
 
-from app.main.auth.services.auth_helper import Auth
+from app.main.user_auth.services.auth_helper import Auth
 
 from flask_babel import gettext, ngettext
 

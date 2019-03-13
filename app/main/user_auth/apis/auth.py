@@ -1,8 +1,8 @@
 from flask import request
 from flask_restplus import Resource
 
-from app.main.auth.services.auth_helper import Auth
-from app.main.utils.dto import AuthDto
+from app.main.user_auth.services.auth_helper import Auth
+from app.main.user_auth.utils.dto import AuthDto
 
 api = AuthDto.api
 user_auth = AuthDto.user_auth

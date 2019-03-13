@@ -1,8 +1,8 @@
 
 from app.main import db, flask_bcrypt
 import datetime
-from app.main.auth.models.blacklist import BlacklistToken
-from app.main.config import key
+from app.main.user_auth.models.blacklist import BlacklistToken
+from app.config import key
 import jwt
 from flask_babel import gettext, ngettext
 

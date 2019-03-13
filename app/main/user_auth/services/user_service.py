@@ -4,7 +4,7 @@ import re
 
 from flask import request
 from app.main import db
-from app.main.user.models.user import User
+from app.main.user_auth.models.user import User
 from flask_babel import gettext, ngettext
 
 def save_new_user(data):

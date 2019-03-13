@@ -2,9 +2,9 @@ from flask import request, g
 from flask_restplus import Resource, fields
 from flask_babel import gettext, ngettext
 
-from app.main.utils.decorator import admin_token_required, token_required
-from app.main.utils.dto import UserDto
-from app.main.user.services.user_service import save_new_user, get_all_users, get_user, update_user
+from app.main.user_auth.utils.decorator import admin_token_required, token_required
+from app.main.user_auth.utils.dto import UserDto
+from app.main.user_auth.services.user_service import save_new_user, get_all_users, get_user, update_user
 
 api = UserDto.api
 user_result = UserDto.user_result
