@@ -50,7 +50,7 @@ python manage.py run
 
 ### API DOC:
 
-- Run the server then enter: [https://localhost:5000/api/swagger](https://localhost:5000/api/swagger)
+- Run the server then enter: [https://localhost:5000/api/swagger](https://localhost:5000/api/)
 
 ### References
 
