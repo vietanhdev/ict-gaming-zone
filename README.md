@@ -1,15 +1,10 @@
 #### PROJECT REPOSITORY FOR ICT GAMMING ZONE
 
 
-### Documents for developer:
+### DOCUMENTS FOR DEVELOPERS:
 
-- Please see in the folder [/docs/](/docs/).
-
-
-### NOTE FOR DEVELOPERS:
-
-
-
+- Generic Guide: [/docs/1.COMMON.md](/docs/1.COMMON.md).
+- Authentication: [/docs/2.USER_AUTH.md](/docs/2.USER_AUTH.md).
 
 ### API DOC:
 
