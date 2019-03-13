@@ -26,4 +26,4 @@ class BlacklistToken(db.Model):
         if res:
             return True
         else:
-            return False
+            return False 
