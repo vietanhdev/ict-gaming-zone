@@ -2,10 +2,10 @@ from flask import request, g
 from flask_restplus import Resource, fields, marshal
 from flask_babel import gettext, ngettext
 
-from app.main.user_auth.utils.request_verify import require_json_request
+from app.main.utils.request_verify import require_json_request
 
 from .utils.dto import UserDto
-from .services.user import create_user, get_users, get_user, update_user
+from .services.user_service import create_user, get_users, get_user, update_user
 
 from .utils.decorator import admin_token_required, user_token_required
 

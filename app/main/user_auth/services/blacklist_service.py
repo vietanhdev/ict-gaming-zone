@@ -1,7 +1,7 @@
 
 from app.main import db
 
-from app.main.user_auth.models.blacklist_token import BlacklistToken
+from app.main.user_auth.models.blacklist_token_model import BlacklistToken
 
 def save_token(token):
     blacklist_token = BlacklistToken(token=token)

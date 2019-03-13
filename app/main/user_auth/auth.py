@@ -2,9 +2,9 @@ from flask import request, jsonify
 from flask_restplus import Resource
 
 from .utils.dto import AuthDto
-from .services.auth import Auth
+from .services.auth_service import Auth
 
-from app.main.user_auth.utils.request_verify import require_json_request
+from app.main.utils.request_verify import require_json_request
 
 # Load api namespace
 api = AuthDto.api

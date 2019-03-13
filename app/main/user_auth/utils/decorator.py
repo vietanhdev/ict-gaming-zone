@@ -1,8 +1,8 @@
 from functools import wraps
 from flask import request, g
-from app.main.user_auth.services.auth import Auth
+from app.main.user_auth.services.auth_service import Auth
 from flask_babel import gettext, ngettext
-from app.main.user_auth.services.user import get_user_by_id
+from app.main.user_auth.services.user_service import get_user_by_id
 
 def admin_token_required(f):
     @wraps(f)

@@ -2,10 +2,10 @@ from flask_babel import gettext, ngettext
 import jwt
 import datetime
 from flask import current_app as app
-from app.main.user_auth.models.blacklist_token import BlacklistToken
-from app.main.user_auth.services.blacklist import save_token
+from app.main.user_auth.models.blacklist_token_model import BlacklistToken
+from app.main.user_auth.services.blacklist_service import save_token
 
-from app.main.user_auth.models.user import User
+from app.main.user_auth.models.user_model import User
 
 class Auth:
 

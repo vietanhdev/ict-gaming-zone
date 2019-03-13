@@ -4,9 +4,9 @@ import re
 
 from flask import request
 from app.main import db
-from app.main.user_auth.models.user import User
+from app.main.user_auth.models.user_model import User
 from flask_babel import gettext, ngettext
-from .auth import Auth
+from .auth_service import Auth
 
 def get_users():
     return User.query.all()
