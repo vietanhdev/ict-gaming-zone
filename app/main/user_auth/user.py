@@ -35,7 +35,7 @@ class UserList(Resource):
         return create_user(data=data)
 
 
-@api.route('/<public_id>')
+@api.route('/<public_id>/')
 @api.param('public_id', 'The User identifier')
 @api.response(404, gettext(u'User not found.'))
 class User(Resource):
@@ -54,11 +54,18 @@ class User(Resource):
                 'message': gettext(u'Permission Denied.')
             }, 403
 
-        user = get_user(user.get('user_id'))
+        user = get_user(user.get('id'))
+        
         if not user:
-            api.abort(404)
+            return {
+                'status': 'fail',
+                'message': gettext(u'User Not Found.')
+            }, 404
         else:
-            return user
+            return {
+                'status': 'success',
+                'data': marshal(user, UserDto.user_details)
+            }
 
     @api.doc('Update a user')
     @user_token_required
@@ -78,7 +85,7 @@ class User(Resource):
             }, 403
 
         data = request.json
-        data["user_id"] = user.get('user_id')
+        data['id'] = user.get('id')
         return update_user(data=data)
 
     

@@ -8,20 +8,15 @@ from app.main.user_auth.models.user import User
 from flask_babel import gettext, ngettext
 from .auth import Auth
 
-
-def get_players():
-    return User.query.filter_by(user_role=UserRole.PLAYER.value).all()
-
 def get_users():
     return User.query.all()
 
 def get_user(id):
     return User.query.filter_by(id=id).first()
 
-
 def update_user(data):
     try:
-        user = User.query.filter_by(id=data['user_id']).first()
+        user = User.query.filter_by(id=data['id']).first()
 
         if not user:
             response_object = {
@@ -29,6 +24,18 @@ def update_user(data):
                 'message': gettext(u'User not found.'),
             }
             return response_object, 404
+
+
+        # User wants to update name
+        if 'name' in data.keys():
+            if 3 > len(data['name']) or len(data['name']) > 50:
+                return {
+                    'status': 'fail',
+                    'error_code': 4002,
+                    'message': gettext(u'Ensure that you specified a name having 3-50 characters.'),
+                }, 400
+            else:
+                user.name = data['name']
 
         # User wants to update email
         if 'email' in data.keys():
@@ -40,14 +47,20 @@ def update_user(data):
                     'message': gettext(u'Invalid email address.'),
                 }
 
+            if 3 > len(data['email']) or len(data['email']) > 50:
+                return {
+                    'status': 'fail',
+                    'error_code': 4003,
+                    'message': gettext(u'Ensure that you specified a correct email having 3-50 characters.')
+                }, 400
+
             # Check email existence
-            user = User.query.filter_by(email=data['email']).first()
-            if user:
-                response_object = {
+            same_mail_user = User.query.filter_by(email=data['email']).first()
+            if same_mail_user:
+                return {
                     'status': 'fail',
                     'message': gettext(u'Email already exists. Please choose another.'),
-                }
-                return response_object, 409
+                }, 409
 
             user.email = data['email']
 
@@ -61,6 +74,14 @@ def update_user(data):
                     'message': gettext(u'Wrong old password.')
                 }
                 return response_object, 403
+
+            # Check password characters and ensure it having at least 1 number
+            if not ( re.match(r'[A-Za-z0-9@#$%^&+=]{5,10}', data.get('password')) and any(c.isdigit() for c in data.get('password')) ):
+                return {
+                    'status': 'fail',
+                    'error_code': 4005,
+                    'message': gettext(u'Wrong password format. Please use a password from 5-10 characters, containing only A-Z a-z 0-9 and special characters (@ # $ % ^ & + =). The password must have at least 1 number.')
+                }, 400
 
             user.password = data.get('password')
 
