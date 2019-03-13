@@ -29,6 +29,8 @@ class TestingConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'database_test.db')
     PRESERVE_CONTEXT_ON_EXCEPTION = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    ADMIN_USERNAME = 'testadmin'
+    ADMIN_PASSWORD = 'test123456'
 
 
 class ProductionConfig(Config):
